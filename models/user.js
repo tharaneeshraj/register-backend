@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
   dob: { type: Date, required: true },
   password: { type: String, required: true, minlength: 8 },
   cpswd: { type: String, required: true, minlength: 8 },
-  about: { type: String, maxlength: 5000 },
+  about: { type: String, maxlength: 200 },
 });
 
 module.exports = mongoose.model("User", userSchema);
