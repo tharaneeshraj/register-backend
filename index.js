@@ -9,14 +9,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-
 mongoose
   .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => {
-    console.log("MongoDB Connection Error:", err.message);
-    process.exit(1);
-  });
+  .then(() => console.log("MongoDB Connected Successfully"))
+  .catch((err) => console.log("MongoDB Connection Error:", err));
 
 app.use("/api/users", require("./routes/userroutes"));
 

@@ -1,7 +1,7 @@
-
 const express = require("express")
 const router = express.Router()
 const User = require("../models/user")
+
 
 router.post("/", async (req, res) => {
   try {
@@ -9,6 +9,7 @@ router.post("/", async (req, res) => {
     if (existingUser) {
       return res.status(400).json({ error: "Same user name already exists" });
     }
+
     const user = new User(req.body);
     await user.save();
     res.status(201).json(user);
@@ -16,6 +17,7 @@ router.post("/", async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 });
+
 
 
 router.get("/", async (req, res) => {
@@ -27,6 +29,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+
 router.get("/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
@@ -37,10 +40,11 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+
 router.put("/:id", async (req, res) => {
   try {
     const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    if (!user) return res.status(404).json({ error: "You searching for User not found" });
+    if (!user) return res.status(404).json({ error: "User not found" });
     res.json(user);
   } catch (error) {
     res.status(400).json({ error: error.message });
