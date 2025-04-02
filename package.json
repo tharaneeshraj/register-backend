@@ -25,6 +25,7 @@
     "openapi": "^1.0.1",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
-    "yaml": "^2.7.1"
+    "swagger-cli": "^4.0.4",
+    "yamljs": "^0.3.0"
   }
 }
