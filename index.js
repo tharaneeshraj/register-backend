@@ -7,6 +7,11 @@ const swaggerUi = require("swagger-ui-express");
 
 dotenv.config();
 
+let serverUrl = "http://localhost:8080/api/users";
+if (process.env.VERCEL_URL) {
+  serverUrl = `https://register-backend-zeta.vercel.app/api/users`; 
+}
+
 const options = {
   definition: {
     openapi: "3.0.0",
@@ -17,7 +22,7 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:8080/api/users"
+        url: serverUrl,
       }
     ],
     paths: {
