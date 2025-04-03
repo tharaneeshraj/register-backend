@@ -9,7 +9,7 @@ dotenv.config();
 
 let serverUrl = "http://localhost:8080/api/users";
 if (process.env.VERCEL_URL) {
-  serverUrl = `https://register-backend-zeta.vercel.app/api/users`; 
+  serverUrl = `https://${process.env.VERCEL_URL}/api/users`
 }
 
 const options = {
